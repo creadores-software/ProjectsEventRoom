@@ -21,6 +21,7 @@ class Keyword extends Model
 
     public function presentations()
     {
-        return $this->belongsToMany(Presentation::class);
+        return $this->belongsToMany(Presentation::class)
+            ->using(KeywordPresentation::class);
     }
 }

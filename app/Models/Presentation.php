@@ -26,13 +26,14 @@ class Presentation extends Model
         return $this->belongsTo(Event::class);
     }
 
-    public function owners()
+    public function users()
     {
         return $this->belongsToMany(User::class);
     }
 
     public function keywords()
     {
-        return $this->belongsToMany(Keyword::class);
+        return $this->belongsToMany(Keyword::class)
+            ->using(KeywordPresentation::class);
     }
 }
