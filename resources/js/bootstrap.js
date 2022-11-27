@@ -38,3 +38,4 @@ import * as Popper from '@popperjs/core'
 window.Popper = Popper
 import 'bootstrap'
 // import * as bootstrap from 'bootstrap'
+import '../css/bootstrap.scss'; 
