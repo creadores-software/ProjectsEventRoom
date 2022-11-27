@@ -1,0 +1,1 @@
+<a href="{{ route('front.frontpage.categories') }}">Categorias</a>

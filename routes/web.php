@@ -14,9 +14,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+######################################################
+
+## FRONT
+
+Route::get('/', 
+    [App\Http\Controllers\Front\FrontPageController::class, 'index'])
+    ->name('front.frontpage.index');
+
+Route::get('/categories', 
+    [App\Http\Controllers\Front\FrontPageController::class, 'categories'])
+    ->name('front.frontpage.categories');
+
+Route::get('/categories/{categoryId}/events', 
+    [App\Http\Controllers\Front\FrontPageController::class, 'events'])
+    ->name('front.frontpage.events');
+
+Route::get('/categories/{categoryId}/events/{eventId}/versions', 
+    [App\Http\Controllers\Front\FrontPageController::class, 'versions'])
+    ->name('front.frontpage.versions');
+
+Route::get('/categories/{categoryId}/events/{eventId}/versions/{versionId}/presentations', 
+    [App\Http\Controllers\Front\FrontPageController::class, 'presentations'])
+    ->name('front.frontpage.presentations');
+
+######################################################
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -29,3 +51,5 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+######################################################
