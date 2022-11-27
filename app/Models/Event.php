@@ -37,4 +37,14 @@ class Event extends Model
         'begin_date' => 'date',
         'end_date' => 'date',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function presentations()
+    {
+        return $this->hasMany(Presentation::class);
+    }
 }

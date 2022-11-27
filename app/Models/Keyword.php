@@ -18,4 +18,9 @@ class Keyword extends Model
         'name',
         'count',
     ];
+
+    public function presentations()
+    {
+        return $this->belongsToMany(Presentation::class);
+    }
 }

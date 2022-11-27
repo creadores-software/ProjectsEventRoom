@@ -20,4 +20,19 @@ class Presentation extends Model
         'description',
         'url',
     ];
+
+    public function event()
+    {
+        return $this->belongsTo(Event::class);
+    }
+
+    public function owners()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function keywords()
+    {
+        return $this->belongsToMany(Keyword::class);
+    }
 }
