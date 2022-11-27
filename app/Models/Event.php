@@ -17,25 +17,7 @@ class Event extends Model
     protected $fillable = [
         'category_id',
         'name',
-        'version',
         'description',
-        'location',
-        'city',
-        'country',
-        'latitude',
-        'longitude',
-        'begin_date',
-        'end_date'
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'begin_date' => 'date',
-        'end_date' => 'date',
     ];
 
     public function category()
@@ -43,8 +25,8 @@ class Event extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function presentations()
+    public function versions()
     {
-        return $this->hasMany(Presentation::class);
+        return $this->hasMany(Version::class);
     }
 }

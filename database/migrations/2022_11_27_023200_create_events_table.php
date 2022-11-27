@@ -17,15 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_id');
             $table->string('name', 128);
-            $table->string('version', 64);
             $table->text('description')->nullable();
-            $table->string('location', 256)->nullable();
-            $table->string('city', 64)->nullable();
-            $table->string('country', 64)->nullable();
-            $table->float('latitude', 7, 4)->nullable();
-            $table->float('longitude', 7, 4)->nullable();
-            $table->date('begin_date')->nullable();
-            $table->date('end_date')->nullable();
             $table->timestamps();
 
             $table->foreign('category_id')

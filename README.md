@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-$ git clone https://github.com/creadores-software/ProjectsEventRoom.git
+$ git clone https://github.com/creadores-software/ProjectsShowRoom.git
 
 $ cp .env.example .env
 

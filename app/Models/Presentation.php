@@ -15,15 +15,15 @@ class Presentation extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'event_id',
+        'version_id',
         'name',
         'description',
         'url',
     ];
 
-    public function event()
+    public function version()
     {
-        return $this->belongsTo(Event::class);
+        return $this->belongsTo(Version::class);
     }
 
     public function users()

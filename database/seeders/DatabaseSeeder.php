@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Event::factory(10)->create();
 
+        \App\Models\Version::factory(25)->create();
+
         // \App\Models\Presentation::factory(35)->create();
         $this->call(PresentationSeeder::class);
     }

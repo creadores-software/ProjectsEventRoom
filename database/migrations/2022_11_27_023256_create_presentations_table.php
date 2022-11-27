@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('presentations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('event_id');
+            $table->foreignId('version_id');
             $table->string('name', 128);
             $table->text('description')->nullable();
 			$table->string('url', 128)->nullable();
 			// - (fotos, videos, archivos, enlaces)            
             $table->timestamps();
 
-            $table->foreign('event_id')
-                ->references('id')->on('events')
+            $table->foreign('version_id')
+                ->references('id')->on('versions')
                     ->onDelete('restrict')
                     ->onUpdate('cascade');
         });

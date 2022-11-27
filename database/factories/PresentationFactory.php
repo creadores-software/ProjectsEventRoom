@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Event;
+use App\Models\Version;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Presentation>
@@ -18,7 +18,7 @@ class PresentationFactory extends Factory
     public function definition()
     {
         return [
-            'event_id' => Event::all()->random(),
+            'version_id' => Version::all()->random(),
             'name' => $this->faker->bs(),
             'description' => $this->faker->text(rand(200, 300)),
             'url' => $this->faker->url(),
