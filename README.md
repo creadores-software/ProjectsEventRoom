@@ -12,6 +12,10 @@ $ composer install
 $ npm install
 
 $ npm run build
+
+$ php artisan storage:link
+
+$ php artisan migrate --seed
 ```
 
 Adjust the configuration variables from the `.env` file as required.

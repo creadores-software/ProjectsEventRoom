@@ -33,7 +33,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     enabledTransports: ['ws', 'wss'],
 // });
 
-// Bootstrap5
+// Bootstrap5 //
 import * as Popper from '@popperjs/core'
 window.Popper = Popper
 import 'bootstrap'

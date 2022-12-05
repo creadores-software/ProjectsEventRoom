@@ -26,17 +26,21 @@ Route::get('/categories',
     [App\Http\Controllers\Front\FrontPageController::class, 'categories'])
     ->name('front.frontpage.categories');
 
-Route::get('/categories/{categoryId}/events', 
+Route::get('/categories/{category}/events', 
     [App\Http\Controllers\Front\FrontPageController::class, 'events'])
     ->name('front.frontpage.events');
 
-Route::get('/categories/{categoryId}/events/{eventId}/versions', 
+Route::get('/categories/{category}/events/{event}/versions', 
     [App\Http\Controllers\Front\FrontPageController::class, 'versions'])
     ->name('front.frontpage.versions');
 
-Route::get('/categories/{categoryId}/events/{eventId}/versions/{versionId}/presentations', 
+Route::get('/categories/{category}/events/{event}/versions/{version}/presentations', 
     [App\Http\Controllers\Front\FrontPageController::class, 'presentations'])
     ->name('front.frontpage.presentations');
+
+Route::get('/about', 
+    [App\Http\Controllers\Front\FrontPageController::class, 'about'])
+    ->name('front.frontpage.about');
 
 ######################################################
 

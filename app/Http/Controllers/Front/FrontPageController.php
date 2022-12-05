@@ -24,24 +24,29 @@ class FrontPageController extends Controller
         return view("front.frontpage.categories", compact('categories'));
     }
 
-    public function events($categoryId)
+    public function events(Category $category)
     {
-        $events = Event::where('category_id', $categoryId)->orderBy('name', 'asc')->get();
+        $events = Event::where('category_id', $category->id)->orderBy('name', 'asc')->get();
 
-        return view("front.frontpage.events", compact('categoryId', 'events'));
+        return view("front.frontpage.events", compact('category', 'events'));
     }
 
-    public function versions($categoryId, $eventId)
+    public function versions(Category $category, Event $event)
     {
-        $versions = Version::where('event_id', $eventId)->orderBy('name', 'asc')->get();
+        $versions = Version::where('event_id', $event->id)->orderBy('name', 'asc')->get();
 
-        return view("front.frontpage.versions", compact('categoryId', 'eventId', 'versions'));
+        return view("front.frontpage.versions", compact('category', 'event', 'versions'));
     }
 
-    public function presentations($categoryId, $eventId, $versionId)
+    public function presentations(Category $category, Event $event, Version $version)
     {
-        $presentations = Presentation::where('version_id', $versionId)->orderBy('name', 'asc')->get();
+        $presentations = Presentation::where('version_id', $version->id)->orderBy('name', 'asc')->get();
 
-        return view("front.frontpage.presentations", compact('categoryId', 'eventId', 'versionId', 'presentations'));
+        return view("front.frontpage.presentations", compact('category', 'event', 'version', 'presentations'));
+    }
+
+    public function about()
+    {
+        return view("front.frontpage.about");
     }
 }

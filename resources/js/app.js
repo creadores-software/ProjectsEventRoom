@@ -1,5 +1,6 @@
 import './bootstrap';
 
+// Site's Theme //
 // CSS front page theme
 import '../css/front_theme/splide.min.css';
 import '../css/front_theme/style.css';

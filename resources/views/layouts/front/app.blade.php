@@ -24,16 +24,23 @@
    <body>
       <nav id="primary-navbar" class="primary-nav navbar navbar-expand-lg navbar-light bg-white fixed-top font-nunito">
          <div class="container px-4 px-sm-0">
-            <a class="navbar-brand" href="#"><img src="assets/images/logo.png"></a>
+            <a class="navbar-brand" href="{{ route('front.frontpage.index') }}">
+               {{ config('app.name', 'jimezam') }}
+            </a>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                <ul class="navbar-nav ms-auto">
-                  <li class="nav-item">
-                     <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <li class="nav-itemx">
+                     <a class="nav-link {{ (Route::currentRouteName() == "front.frontpage.index") ? "active" : "" }}" aria-current="page" href="{{ route('front.frontpage.index') }}">
+                        Inicio
+                     </a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">About</a>
+                     <a class="nav-link {{ (Route::currentRouteName() == 'front.frontpage.categories') ? "active" : "" }}" href="{{ route('front.frontpage.categories') }}">Categorías</a>
                   </li>
                   <li class="nav-item">
+                     <a class="nav-link {{ (Route::currentRouteName() == 'front.frontpage.about') ? "active" : "" }}" href="{{ route('front.frontpage.about') }}">Nosotros</a>
+                  </li>
+                  {{-- <li class="nav-item">
                      <a class="nav-link" href="#">Work</a>
                   </li>
                   <li class="nav-item dropdown">
@@ -50,7 +57,7 @@
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="#">Contact</a>
-                  </li>
+                  </li> --}}
                </ul>
             </div>
             <button id="open-sidenav" class="open-sidenav bg-transparent border-0 ms-2">
@@ -110,8 +117,8 @@
       </div>
       <!-- Off Canvas Menu End-->
       
-      <section class="hero bg-white">
-         <div class="container">
+      <section class="hero bg-white" style="margin-bottom: 90px">
+         <div id="contents" class="container">
             {{ $slot }}
          </div>
       </section>
@@ -657,9 +664,15 @@
 
 
       <!--Footer Start-->
-      <footer class="footer bg-dark text-muted pt-0 pt-lg-5">
+      <footer class="footer fixed-bottom bg-dark text-muted pt-0 pt-lg-0">
          <div class="container">
-            <div class="row">
+            {{-- <div class="row">
+               <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                  Hola
+               </div>
+            </div> --}}
+
+            {{-- <div class="row">
                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
                   <div class="footer-col mt-5 pe-4">
                      <img src="assets/images/logo-white.png" class="footer-logo mb-4">
@@ -696,26 +709,30 @@
                      <div><img class="me-2" src="assets/images/phone.svg"><span> contact@example.com</span></div>
                   </div>
                </div>
-            </div>
-            <div class="row footer-credits text-center mt-5 py-3">
-               <div class="col-12 col-md-6">
+            </div> --}}
+
+            {{-- mt-5 --}}
+            <div class="row footer-credits text-center  py-3">
+               <div class="col-12 col-md-11">
                   <div class="footer-copy float-md-none float-lg-start">
-                     <p class="mb-0 small">&copy 2021 <a href="#" class="text-decoration-none">Pika</a>. Designed by <a href="https://romanpixel.com" rel="nofollow" class="text-decoration-none">RomanPixel</a></p>
+                     <p class="mb-0 small">
+                        Creado por el <a href="#" class="text-decoration-none">Semillero de Desarrollo Web y Móvil</a> 
+                        del programa de <a href="https://www.autonoma.edu.co/oferta-academica/pregrado/ingenieria-de-sistemas" class="text-decoration-none">Ingeniería de Sistemas</a> 
+                        de la <a href="https://www.autonoma.edu.co/" class="text-decoration-none">Universidad Autónoma de Manizales</a> &copy {{ date("Y") }}
+                     </p>
                   </div>
                </div>
-               <div class="col-12 col-md-6">
+               <div class="col-12 col-md-1">
                   <div class="footer-social clearfix">
                      <ul class="list-unstyled mb-0 float-md-none float-lg-end">
-                        <li class="d-inline-block me-2"><a href="#"><img src="assets/images/youtube.svg"></a></li>
-                        <li class="d-inline-block me-2"><a href="#"><img src="assets/images/twitter.svg"></a></li>
-                        <li class="d-inline-block me-2"><a href="#"><img src="assets/images/instagram.svg"></a></li>
-                        <li class="d-inline-block me-2"><a href="#"><img src="assets/images/github.svg"></a></li>
-                        <li class="d-inline-block me-2"><a href="#"><img src="assets/images/dribbble.svg"></a></li>
-                        <li class="d-inline-block"><a href="#"><img src="assets/images/facebook.svg"></a></li>
+                        <li class="d-inline-block me-2"><a href="https://github.com/creadores-software"><img src="{{ asset('storage/theme/images/github.svg') }}"></a></li>
+                        <li class="d-inline-block"><a href="https://www.facebook.com/IngenieriaDeSistemasUAM"><img src="{{ asset('storage/theme/images/facebook.svg') }}"></a></li>
                      </ul>
                   </div>
                </div>
             </div>
+
+            
          </div>
       </footer>
       <!--Footer End-->
